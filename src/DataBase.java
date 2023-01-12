@@ -2,16 +2,27 @@ import java.util.ArrayList;
 
 public class DataBase {
     private static DataBase instance;
-    private static ArrayList<String> equationsList = new ArrayList<String>();
+    private static ArrayList<MathExample> exampleList = new ArrayList<MathExample>();
     private DataBase(){
     }
-    public static DataBase getInstance(String nameFile) {
+    public static DataBase getInstance() {
         if (instance == null) {
             instance = new DataBase();
         }
         return instance;
     }
-    public static void AddInformation (String equation){
-        equationsList.add(equation);
+    public void AddData (ArrayList<String> exampleListString){
+        int count = exampleListString.size();
+        for(int i = 0; i < count; i++){
+            MathExample stringMathExample = new MathExample(exampleListString.get(i));
+            exampleList.add(stringMathExample);
+        }
+
+    }
+    public static void Print(){
+        int count = exampleList.size();
+        for(int i = 0; i < count; i++){
+            System.out.println(exampleList.get(i).example);
+        }
     }
 }
