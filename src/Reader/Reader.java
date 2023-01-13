@@ -1,19 +1,21 @@
+package Reader;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Reader {
+public class Reader implements IReader{
     private String fileName;
     public Reader(){
         this.fileName = null;
     }
-    public Reader(String fileName){
-        this.fileName = fileName;
-    }
-    public ArrayList<String> ReadData() throws FileNotFoundException {
-        File inputFile = new File(fileName);
+    //public Reader(String fileName){
+  //     this.fileName = fileName;
+  //  }
+    public ArrayList<String> ReadData(String nameFile) throws FileNotFoundException {
+        File inputFile = new File(nameFile);
         Scanner scanner = new Scanner(inputFile);
         ArrayList<String> exampleList = new ArrayList<String>();
         while (scanner.hasNextLine()) {
@@ -21,4 +23,5 @@ public class Reader {
         }
         return exampleList;
     }
+
 }
