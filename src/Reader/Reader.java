@@ -25,60 +25,31 @@ public class Reader implements IReader{
     public Reader(){
         this.fileName = null;
     }
-    //public Reader(String fileName){
-  //     this.fileName = fileName;
-  //  }
     public ArrayList<String> ReadData(String nameFile) throws IOException, ParseException, ParserConfigurationException, SAXException {
         ArrayList<String> exampleList = new ArrayList<>();
+        while(nameFile.endsWith(".enc") || nameFile.endsWith(".zip")){
+            if(nameFile.endsWith(".zip")) {
+                ZIPArchiving archiving = new ZIPArchiving();
+                 nameFile = archiving.UnArchive(nameFile);
+                 System.out.println(nameFile);
+            }
+            if(nameFile.endsWith(".enc")){
+                Encryption enc = new Encryption();
+                nameFile = enc.Decode(nameFile);
+            }
+        }
         if(nameFile.endsWith("txt")){
-            exampleList = ReadDataTXT(nameFile);
+            ReaderTXT reader = new ReaderTXT();
+            exampleList = reader.ReadData(nameFile);
         }
         else if(nameFile.endsWith("json")) {
-            exampleList = ReadDataJSon(nameFile);
+            ReaderJSON reader = new ReaderJSON();
+            exampleList = reader.ReadData(nameFile);
         }
         else if(nameFile.endsWith("xml")) {
-            exampleList = ReadDataXML(nameFile);
+            ReaderXML reader = new ReaderXML();
+            exampleList = reader.ReadData(nameFile);
         }
-        return exampleList;
-    }
-    public ArrayList<String> ReadDataTXT(String nameFile) throws FileNotFoundException {
-        File inputFile = new File(nameFile);
-        Scanner scanner = new Scanner(inputFile);
-        ArrayList<String> exampleList = new ArrayList<>();
-        while (scanner.hasNextLine()) {
-            exampleList.add(scanner.nextLine());
-        }
-        return exampleList;
-    }
-    public ArrayList<String> ReadDataJSon(String nameFile) throws IOException, ParseException {
-        ArrayList<String> exampleList = new ArrayList<>();
-        JSONParser parser = new JSONParser();
-        try( FileReader reader = new FileReader(nameFile)) {
-            JSONObject rootJSONObject = (JSONObject) parser.parse(reader);
-            JSONArray exampleJSONArray = (JSONArray) rootJSONObject.get("MathExample");
-            for (Object it : exampleJSONArray) {
-                JSONObject exampleJSONObject = (JSONObject) it;
-                exampleList.add((String) exampleJSONObject.get("example"));
-            }
-        }catch(Exception e) {
-            e.printStackTrace();
-        }
-        return exampleList;
-    }
-    public ArrayList<String> ReadDataXML(String nameFile) throws IOException, SAXException, ParserConfigurationException {
-        ArrayList<String> exampleList = new ArrayList<>();
-        DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-        Document document = documentBuilder.parse(nameFile);
-        Node root = document.getDocumentElement();
-        NodeList examples = root.getChildNodes();
-        for (int i = 0; i < examples.getLength(); i++) {
-            Node example = examples.item(i);
-            if (example.getNodeType() != Node.TEXT_NODE) {
-                exampleList.add(example.getChildNodes().item(0).getTextContent());
-            }
-        }
-
-
         return exampleList;
     }
 }

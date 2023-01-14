@@ -21,7 +21,7 @@ public class Encryption {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return name + "enc";
+        return name + ".enc";
     }
         public String Decode(String name) throws IOException {
         String newName = name.substring(0, name.length() - 4);
