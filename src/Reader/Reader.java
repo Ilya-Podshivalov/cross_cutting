@@ -20,7 +20,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-public class Reader implements IReader{
+public class Reader{
     private String fileName;
     public Reader(){
         this.fileName = null;
@@ -31,7 +31,6 @@ public class Reader implements IReader{
             if(nameFile.endsWith(".zip")) {
                 ZIPArchiving archiving = new ZIPArchiving();
                  nameFile = archiving.UnArchive(nameFile);
-                 System.out.println(nameFile);
             }
             if(nameFile.endsWith(".enc")){
                 Encryption enc = new Encryption();

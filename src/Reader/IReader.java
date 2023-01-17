@@ -10,4 +10,5 @@ import java.util.ArrayList;
 
 public interface IReader {
      ArrayList<String> ReadData(String nameFile) throws IOException, ParseException, ParserConfigurationException, SAXException;
+     void WriteData(String nameFile, ArrayList<Double> resultList);
 }

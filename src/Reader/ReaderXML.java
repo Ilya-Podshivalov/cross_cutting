@@ -26,4 +26,7 @@ public class ReaderXML {
         }
         return exampleList;
     }
+    public void WriteData(String nameFile, ArrayList<Double> resultList){
+
+    }
 }

@@ -5,6 +5,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ReaderJSON implements IReader{
@@ -23,5 +25,16 @@ public class ReaderJSON implements IReader{
         }
         return exampleList;
     }
+    public void WriteData(String fileName, ArrayList<Double> resultList){
+        JSONObject resultJson = new JSONObject();
+        JSONArray ar = new JSONArray();
+        ar.addAll(resultList);
+        resultJson.put("resultArray:", ar);
+        try (FileWriter file = new FileWriter(fileName)) {
+            file.write(resultJson.toJSONString());
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

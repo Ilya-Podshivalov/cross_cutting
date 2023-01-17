@@ -24,7 +24,7 @@ public class Encryption {
         return name + ".enc";
     }
         public String Decode(String name) throws IOException {
-        String newName = name.substring(0, name.length() - 4);
+            String newName = name.substring(0, name.length() - 4);
             FileOutputStream fos = new FileOutputStream(newName);
             Base64.Decoder decoder = Base64.getDecoder();
             InputStream is = decoder.wrap(new FileInputStream(name));
