@@ -10,5 +10,6 @@
     <orderEntry type="library" name="bluecatcode.junit.4.12.extended" level="project" />
     <orderEntry type="library" name="googlecode.json.simple" level="project" />
     <orderEntry type="library" name="de.congrace.exp4j" level="project" />
+    <orderEntry type="library" name="bluecatcode.junit.4.12.extended1" level="project" />
   </component>
 </module>

@@ -15,7 +15,7 @@ public class ReaderTXT implements IReader{
         }
         return exampleList;
     }
-    public void WriteData(String nameFile, ArrayList<Double> resultList){
-
+    public String WriteData(String nameFile, ArrayList<Double> resultList){
+        return nameFile + ".txt";
     }
 }
