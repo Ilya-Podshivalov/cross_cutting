@@ -12,6 +12,7 @@
 ![image](https://user-images.githubusercontent.com/108458495/213216105-21ce64e5-b064-4dda-8498-9d4dcffb62ad.png)
 
 (Вкладка OUTPUT):
+
 Позволяет выбрать имя, тип, количество архивация и шифрований выходного файла. 
 ![image](https://user-images.githubusercontent.com/108458495/213216933-e48b8d14-e61f-484a-8717-145d0921a12f.png)
 
