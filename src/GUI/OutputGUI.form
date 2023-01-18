@@ -29,7 +29,7 @@
               </grid>
             </constraints>
             <properties>
-              <background color="-8496833"/>
+              <background color="-6065839"/>
               <enabled value="true"/>
               <foreground color="-16777216"/>
               <hideActionText value="false"/>
@@ -43,7 +43,7 @@
               </grid>
             </constraints>
             <properties>
-              <background color="-6065839"/>
+              <background color="-11190742"/>
               <enabled value="true"/>
               <foreground color="-16777216"/>
               <text value="OUTPUT"/>
@@ -168,6 +168,7 @@
               <grid row="4" column="1" row-span="2" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <background color="-6065839"/>
               <text value="Complete"/>
             </properties>
           </component>
