@@ -86,7 +86,7 @@ public class OutputGUI {
                     ReaderTXT readerTXT = new ReaderTXT();
                     try {
                         outputFile = readerTXT.WriteData(outputFile, mathExample.Calculate(DataBase.exampleList));
-                    } catch (UnparsableExpressionException | UnknownFunctionException ex) {
+                    } catch (UnparsableExpressionException | UnknownFunctionException | IOException ex) {
                         throw new RuntimeException(ex);
                     }
                 }
